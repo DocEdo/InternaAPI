@@ -12,6 +12,8 @@ def app
   Interna::Api
 end
 
+# get/ will simulate a call to the API and it will run the route to the API
+
 DATA = YAML.safe_load File.read('app/db/seeds/company_seeds.yml')
 
 describe 'Test Interna Web API' do

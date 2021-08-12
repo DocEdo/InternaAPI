@@ -1,7 +1,7 @@
 ---
 - filename: 'secrets.yml'
-  description: 'AWS credentials'
-  content: 'adslkdasflkhjkdfs'
-- filename: 'another.yml'
-  description: 'configuration'
+  description: 'Peronal Passwords'
+  content: 'dsnflkmslkdfmskdnfjenwnlksdnlfkneinorinlkdsnf'
+- filename: 'nosecretshere.yml'
+  description: 'Many secrets muahaha'
   content: "---\n-key: something\n  another: value"
