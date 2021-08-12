@@ -24,11 +24,13 @@ describe 'Test Interna Web API' do
     Dir.glob("#{Interna::STORE_DIR}/*.txt").each { |comname| FileUtils.rm(comname) }
   end
 
+  # The response of the API in get/ will be stored in last_response and we figure it's status message (method .status) and it must_equal 200
   it 'Should find the root route' do
     get '/'
     _(last_response.status).must_equal 200
   end
 
+  #Creating data and saving it
   describe 'Handle companies' do
     it 'HAPPY: should be able to get list of all companies' do
       Interna::Company.new(DATA[0]).save
