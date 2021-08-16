@@ -1,7 +1,4 @@
 ---
-- filename: 'secrets.yml'
-  description: 'Peronal Passwords'
-  content: 'dsnflkmslkdfmskdnfjenwnlksdnlfkneinorinlkdsnf'
-- filename: 'nosecretshere.yml'
-  description: 'Many secrets muahaha'
-  content: "---\n-key: something\n  another: value"
+- name: Test Company
+
+- name: Another Company
