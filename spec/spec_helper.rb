@@ -14,7 +14,7 @@ def wipe_database
   app.DB[:companies].delete
 end
 
-# What does this mean? DATA = {}
-DATA = {} # ruboxop:disable Style/MutableConstant
+# What does this mean? DATA = {} creating an empty hash!
+DATA = {} # rubocop:disable Style/MutableConstant
 DATA[:jobs] = YAML.safe_load File.read('app/db/seeds/jobs_seeds.yml')
 DATA[:companies] = YAML.safe_load File.read('app/db/seeds/companies_seeds.yml')

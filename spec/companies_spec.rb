@@ -9,9 +9,9 @@ describe 'Test All Companies Manipulations' do
     wipe_database
   end
 
-  it 'NIVR: List all companies.' do
+  it 'NICE: List all companies.' do
     Interna::Company.create(DATA[:companies][0]).save
-    Interna::Company.create(DATA[:companies][1]).save
+    Interna::Company.create(DATA[:companies][1]).save # .save is it needed?
 
     get 'api/v1/companies'
     _(last_response.status).must_equal 200
