@@ -52,5 +52,6 @@ describe 'Test All Companies Manipulations' do
 
     _(created['id']).must_equal comp.id
     _(created['name']).must_equal existing_comp['name']
+    _(created['description']).must_equal existing_comp['description']
   end
 end

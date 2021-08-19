@@ -1,4 +1,5 @@
 ---
 - name: Test Company
-
+  description: Company located in Taipei.
 - name: Another Company
+  description: Another Company located in Taipei.

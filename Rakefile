@@ -44,7 +44,7 @@ namespace :db do
   require 'sequel'
 
   Sequel.extension :migration
-  app = Credence::Api
+  app = Interna::Api
 
   desc 'Run migrations'
   task :migrate => :print_env do
@@ -54,8 +54,8 @@ namespace :db do
 
   desc 'Delete database'
   task :delete do
-    app.DB[:documents].delete
-    app.DB[:projects].delete
+    app.DB[:jobs].delete
+    app.DB[:companies].delete
   end
 
   desc 'Delete dev or test database file'
@@ -65,9 +65,9 @@ namespace :db do
       return
     end
 
-    db_filename = "app/db/store/#{Credence::Api.environment}.db"
-    FileUtils.rm(db_filename)
-    puts "Deleted #{db_filename}"
+    db_jobname = "app/db/store/#{Interna::Api.environment}.db"
+    FileUtils.rm(db_jobname)
+    puts "Deleted #{db_jobname}"
   end
 
   desc 'Delete and migrate again'

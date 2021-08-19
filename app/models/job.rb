@@ -18,8 +18,7 @@ module Interna
             type: 'job',
             attributes: {
               id: id,
-              filename: jobname,
-              # relative_path: relative_path,
+              jobname: jobname,
               description: description,
               content: content
             }

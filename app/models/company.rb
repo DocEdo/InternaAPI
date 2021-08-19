@@ -4,7 +4,7 @@ require 'json'
 require 'sequel'
 
 module Interna
-  # Models a project
+  # Models a Company
   class Company < Sequel::Model
     one_to_many :jobs
     plugin :association_dependencies, jobs: :destroy
@@ -19,7 +19,8 @@ module Interna
             type: 'company',
             attributes: {
               id: id,
-              name: name
+              name: name,
+              description: description
             }
           }
         }, options

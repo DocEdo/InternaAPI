@@ -9,5 +9,5 @@ require_relative '../require_app'
 require_app
 
 def app
-    Interna::Api
+  Interna::Api
 end

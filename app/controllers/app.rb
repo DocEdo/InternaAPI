@@ -39,7 +39,7 @@ module Interna
 
               # GET api/v1/companies/[comp_id]/jobs
               routing.get do
-                output = { data: Company.first(id: comp_id).jobs}
+                output = { data: Company.first(id: comp_id).jobs }
                 JSON.pretty_generate(output)
               rescue StandardError
                 routing.halt 404, message: 'Jobs not found'
@@ -56,7 +56,7 @@ module Interna
                   response['Location'] = "#{@job_route}/#{new_job.id}"
                   { message: 'Job saved.', data: new_job }.to_json
                 else
-                  routing.halt 400, 'Could not save job'
+                  routing.halt 400, 'Could not save job.'
                 end
 
               rescue StandardError
