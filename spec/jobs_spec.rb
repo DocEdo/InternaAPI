@@ -13,20 +13,20 @@ describe 'Test All Jobs Manipulations' do
     end
   end
 
-  it 'NICE: All jobs are listed.' do
+  it 'NICE: All jobs are listed' do
     comp = Interna::Company.first
     DATA[:jobs].each do |job|
       comp.add_job(job)
     end
-    
+
     get "api/v1/companies/#{comp.id}/jobs"
     _(last_response.status).must_equal 200
-    
+
     result = JSON.parse last_response.body
     _(result['data'].count).must_equal 2
   end
 
-  it 'NICE: All details in a single job.' do
+  it 'NICE: All details in a single job' do
     job_data = DATA[:jobs][1]
     comp = Interna::Company.first
     job = comp.add_job(job_data).save
@@ -36,7 +36,7 @@ describe 'Test All Jobs Manipulations' do
 
     result = JSON.parse last_response.body
     _(result['data']['attributes']['id']).must_equal job.id
-    _(result['data']['attributes']['filename']).must_equal job_data['jobname']
+    _(result['data']['attributes']['jobname']).must_equal job_data['jobname']
   end
 
   it 'BUMPY: Error if there is an unknown request.' do
@@ -46,12 +46,12 @@ describe 'Test All Jobs Manipulations' do
     _(last_response.status).must_equal 404
   end
 
-  it 'NICE: Create new jobs.' do
+  it 'NICE: Create new jobs' do
     comp = Interna::Company.first
     job_data = DATA[:jobs][1]
 
     req_header = { 'CONTENT_TYPE' => 'application/json' }
-    post "api/v1/companies/#{comp.id/jobs}", job_data.to_json, req_header
+    post "api/v1/companies/#{comp.id}/jobs", job_data.to_json, req_header
     _(last_response.status).must_equal 201
     _(last_response.header['Location'].size).must_be :>, 0
 

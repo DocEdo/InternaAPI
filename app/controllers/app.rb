@@ -12,7 +12,7 @@ module Interna
   class Api < Roda
     plugin :halt
 
-    route do |routing| # rubocop:disable Metrics/BlockLength
+    route do |routing|
       response['Content-Type'] = 'application/json' # Content type is defined as json here, why?
 
       routing.root do

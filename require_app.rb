@@ -1,8 +1,8 @@
-=begin
-map method takes an enumerable object and a block, and 
-runs the block for each element, outputting each returned value 
-from the block (the original object is unchanged unless you use map!)
-=end
+# frozen_string_literal: true
+
+# map method takes an enumerable object and a block, and
+# runs the block for each element, outputting each returned value
+# from the block (the original object is unchanged unless you use map!)
 
 def require_app(folders = %w[models controllers])
   app_list = Array(folders).map { |folder| "app/#{folder}" }

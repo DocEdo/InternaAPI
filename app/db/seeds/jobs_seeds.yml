@@ -1,7 +1,7 @@
 ---
-- filename: 'secrets.yml'
+- jobname: 'secrets.yml'
   description: 'SEO Specialist'
   content: 'adslkdasflkhjkdfs'
-- filename: 'another.yml'
+- jobname: 'another.yml'
   description: 'Human Resources Manager'
   content: "---\n-key: something\n  another: value"

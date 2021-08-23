@@ -1,6 +1,8 @@
-#froze_literal_string: true
+# frozen_string_literal: true
 
-#run pry -r <path/to/this/file>
+# froze_literal_string: true
+
+# run pry -r <path/to/this/file>
 
 require 'rack/test'
 include Rack::Test::Methods # rubocop:disable Style/MixinUsage
