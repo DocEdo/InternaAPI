@@ -5,6 +5,7 @@ require_relative './spec_helper'
 describe 'Test All Jobs Manipulations' do
   include Rack::Test::Methods
 
+  # Runs before each block (it blocks)
   before do
     wipe_database
 
@@ -12,7 +13,8 @@ describe 'Test All Jobs Manipulations' do
       Interna::Company.create(company_data)
     end
   end
-
+  
+  # Minitest runs all these tests in random order. Best practice.
   it 'NICE: All jobs are listed' do
     comp = Interna::Company.first
     DATA[:jobs].each do |job|

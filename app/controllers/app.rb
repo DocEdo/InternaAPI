@@ -31,7 +31,7 @@ module Interna
 
               # GET api/v1/companies/[comp_id]/jobs/[job_id]
               routing.get String do |job_id|
-                job = Job.where(comp_id: comp_id, id: job_id).first
+                job = Job.where(company_id: comp_id, id: job_id).first
                 job ? job.to_json : raise('Job not found')
               rescue StandardError => e
                 routing.halt 404, { message: e.message }.to_json
