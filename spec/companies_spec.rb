@@ -9,7 +9,7 @@ describe 'Test All Companies Manipulations' do
     wipe_database
   end
 
-  it 'NICE: List all companies.' do
+  it 'HAPPY: List all companies.' do
     Interna::Company.create(DATA[:companies][0]).save
     Interna::Company.create(DATA[:companies][1]).save # .save is it needed?
 
@@ -20,7 +20,7 @@ describe 'Test All Companies Manipulations' do
     _(result['data'].count).must_equal 2
   end
 
-  it 'NICE: Details for every company.' do
+  it 'HAPPY: Details for every company.' do
     existing_comp = DATA[:companies][1]
     Interna::Company.create(existing_comp).save
     id = Interna::Company.first.id
@@ -33,13 +33,13 @@ describe 'Test All Companies Manipulations' do
     _(result['data']['attributes']['name']).must_equal existing_comp['name']
   end
 
-  it 'BUMPY: Error for unknown request.' do
+  it 'SAD: Error for unknown request.' do
     get '/api/v1/companies/leeeeroy'
 
     _(last_response.status).must_equal 404
   end
 
-  it 'NICE: Create companies.' do
+  it 'HAPPY: Create companies.' do
     existing_comp = DATA[:companies][1]
 
     req_header = { 'CONTENT_TYPE' => 'application/json' }

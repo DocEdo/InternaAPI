@@ -15,7 +15,7 @@ describe 'Test All Jobs Manipulations' do
   end
   
   # Minitest runs all these tests in random order. Best practice.
-  it 'NICE: All jobs are listed' do
+  it 'HAPPY: All jobs are listed' do
     comp = Interna::Company.first
     DATA[:jobs].each do |job|
       comp.add_job(job)
@@ -28,7 +28,7 @@ describe 'Test All Jobs Manipulations' do
     _(result['data'].count).must_equal 2
   end
 
-  it 'NICE: All details in a single job' do
+  it 'HAPPY: All details in a single job' do
     job_data = DATA[:jobs][1]
     comp = Interna::Company.first
     job = comp.add_job(job_data).save
@@ -41,14 +41,14 @@ describe 'Test All Jobs Manipulations' do
     _(result['data']['attributes']['jobname']).must_equal job_data['jobname']
   end
 
-  it 'BUMPY: Error if there is an unknown request.' do
+  it 'SAD: Error if there is an unknown request.' do
     comp = Interna::Company.first
     get "/api/v1/companies/#{comp.id}/jobs/rastakhan"
 
     _(last_response.status).must_equal 404
   end
 
-  it 'NICE: Create new jobs' do
+  it 'HAPPY: Create new jobs' do
     comp = Interna::Company.first
     job_data = DATA[:jobs][1]
 
