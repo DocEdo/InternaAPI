@@ -20,6 +20,7 @@ module Interna
       Figaro.env
     end
 
+    # Connecting database Sequel.connect, DATABASE_URL is a local url yml
     DB = Sequel.connect(config.DATABASE_URL)
 
     # Making the database accessible to other classes
