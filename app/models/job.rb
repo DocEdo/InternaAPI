@@ -8,8 +8,28 @@ module Interna
   class Job < Sequel::Model
     many_to_one :company
 
+    plugin :uuid, field: id
     plugin :timestamps
+    plugin :whitelist_security
+    set_allowed_columns :jobname, :description, :content
 
+    # Securing getters and setters
+    def description
+      SecureDB.decrypt(description_secure)
+    end
+
+    def description=(plaintext)
+      self.description_secure = SecureDB.encrypt(plaintext)
+    end
+
+    def content
+      SecureDB.decrypt(content_secure)
+    end
+
+    def content=(plaintext)
+      self.content_secure = SecureDB.encrypt(plaintext)
+    end
+    
     # rubocop:disable Metrics/MethodLength
     def to_json(options = {})
       JSON(
